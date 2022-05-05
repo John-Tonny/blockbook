@@ -26,7 +26,7 @@ type EthereumNet uint32
 
 const (
 	// MainNet is production network
-	MainNet EthereumNet = 1
+	MainNet EthereumNet = 90
 	// TestNet is Ropsten test network
 	TestNet EthereumNet = 3
 )
