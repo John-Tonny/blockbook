@@ -44,6 +44,7 @@ import (
 	"github.com/syscoin/blockbook/bchain/coins/ravencoin"
 	"github.com/syscoin/blockbook/bchain/coins/ritocoin"
 	"github.com/syscoin/blockbook/bchain/coins/sys"
+	"github.com/syscoin/blockbook/bchain/coins/vircle"
 	"github.com/syscoin/blockbook/bchain/coins/unobtanium"
 	"github.com/syscoin/blockbook/bchain/coins/vertcoin"
 	"github.com/syscoin/blockbook/bchain/coins/viacoin"
@@ -109,6 +110,7 @@ func init() {
 	BlockChainFactories["DeepOnion"] = deeponion.NewDeepOnionRPC
 	BlockChainFactories["Bitcore"] = bitcore.NewBitcoreRPC
 	BlockChainFactories["Syscoin"] = syscoin.NewSyscoinRPC
+	BlockChainFactories["Vircle"] = vircle.NewVircleRPC
 	BlockChainFactories["Syscoin Testnet"] = syscoin.NewSyscoinRPC
 	BlockChainFactories["Omotenashicoin"] = omotenashicoin.NewOmotenashiCoinRPC
 	BlockChainFactories["Omotenashicoin Testnet"] = omotenashicoin.NewOmotenashiCoinRPC
