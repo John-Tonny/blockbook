@@ -403,7 +403,8 @@ func (p *BitcoinLikeParser) xpubDescriptorFromXpub(xpub string) (*bchain.XpubDes
 		descriptor.Bip = "49"
 	} else if extKey.Version() == p.XPubMagicSegwitNative {
 		descriptor.Type = bchain.P2WPKH
-		descriptor.Bip = "84"
+		// descriptor.Bip = "84"
+		descriptor.Bip = "44"  // john 20220620
 	} else {
 		descriptor.Type = bchain.P2PKH
 		descriptor.Bip = "44"
@@ -452,7 +453,8 @@ func (p *BitcoinLikeParser) ParseXpub(xpub string) (*bchain.XpubDescriptor, erro
 			descriptor.Bip = "49"
 		case "wpkh":
 			descriptor.Type = bchain.P2WPKH
-			descriptor.Bip = "84"
+			// descriptor.Bip = "84"
+			descriptor.Bip = "44"	// john 20220620
 		case "tr":
 			descriptor.Type = bchain.P2TR
 			descriptor.Bip = "86"
