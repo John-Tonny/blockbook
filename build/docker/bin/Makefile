@@ -2,8 +2,8 @@ SHELL = /bin/bash
 VERSION ?= devel
 GITCOMMIT = $(shell cd /src && git describe --always --dirty)
 BUILDTIME = $(shell date --iso-8601=seconds)
-LDFLAGS := -X github.com/syscoin/blockbook/common.version=$(VERSION) -X github.com/syscoin/blockbook/common.gitcommit=$(GITCOMMIT) -X github.com/syscoin/blockbook/common.buildtime=$(BUILDTIME)
-BLOCKBOOK_BASE := $(GOPATH)/src/github.com/syscoin
+LDFLAGS := -X github.com/vircle/blockbook/common.version=$(VERSION) -X github.com/vircle/blockbook/common.gitcommit=$(GITCOMMIT) -X github.com/vircle/blockbook/common.buildtime=$(BUILDTIME)
+BLOCKBOOK_BASE := $(GOPATH)/src/github.com/vircle
 BLOCKBOOK_SRC := $(BLOCKBOOK_BASE)/blockbook
 ARGS ?=
 

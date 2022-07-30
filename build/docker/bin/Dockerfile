@@ -7,7 +7,12 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y -f build-essential git wget pkg-config lxc-dev libzmq3-dev \
                        libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev \
-                       liblz4-dev graphviz && \
+                       liblz4-dev graphviz software-properties-common && \
+    add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+    apt-get install -y gcc-9 g++-9 && \
+    rm /usr/bin/gcc /usr/bin/g++  && \
+    ln -s /usr/bin/gcc-9 /usr/bin/gcc && \
+    ln -s /usr/bin/g++-9 /usr/bin/g++ && \
     apt-get clean
 
 ENV GOLANG_VERSION=go1.17.1.linux-amd64
@@ -17,6 +22,9 @@ ENV PATH=$PATH:$GOPATH/bin
 ENV CGO_CFLAGS="-I/opt/rocksdb/include"
 ENV CGO_LDFLAGS="-L/opt/rocksdb -ldl -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4"
 ARG TCMALLOC
+
+ENV GOPROXY="https://mirrors.aliyun.com/goproxy/,direct"
+ENV GO111MODULE="on"
 
 RUN mkdir /build
 
@@ -42,11 +50,11 @@ RUN strip /opt/rocksdb/ldb /opt/rocksdb/sst_dump && \
 
 # pre-load depencencies
 RUN \
-    cleanup() { rm -rf $GOPATH/src/github.com/syscoin ; } && \
+    cleanup() { rm -rf $GOPATH/src/github.com/vircle ; } && \
     trap cleanup EXIT && \
-    mkdir -p $GOPATH/src/github.com/syscoin && \
-    cd $GOPATH/src/github.com/syscoin && \
-    git clone https://github.com/syscoin/blockbook.git && \
+    mkdir -p $GOPATH/src/github.com/vircle && \
+    cd $GOPATH/src/github.com/vircle && \
+    git clone https://github.com/John-Tonny/blockbook.git && \
     cd blockbook && \
     go mod download
 

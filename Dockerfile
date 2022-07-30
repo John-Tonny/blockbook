@@ -1,0 +1,12 @@
+FROM johntonny/blockbook:v1.0.4
+
+ENV RPC_USER=chain
+ENV RPC_PASS=999000
+ENV RPC_PORT=9282
+ENV BLOCKBOOK_PORT=9130
+
+WORKDIR /home/blockbook
+
+EXPOSE 9130
+
+ENTRYPOINT sh run.sh 

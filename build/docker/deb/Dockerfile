@@ -1,6 +1,6 @@
 # initialize from the image
 
-FROM blockbook-build:latest
+FROM bgostartups/blockbook-buil:latest
 
 RUN apt-get update && \
     apt-get upgrade -y && \
