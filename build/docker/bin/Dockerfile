@@ -36,7 +36,7 @@ fi
 
 # install and configure go
 RUN cd /opt && wget https://dl.google.com/go/$GOLANG_VERSION.tar.gz && \
-    tar xf $GOLANG_VERSION.tar.gz
+    tar xf $GOLANG_VERSION.tar.gz && rm https://dl.google.com/go/$GOLANG_VERSION.tar.gz
 RUN ln -s /opt/go/bin/go /usr/bin/go
 RUN mkdir -p $GOPATH
 RUN echo -n "GO version: " && go version
