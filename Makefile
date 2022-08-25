@@ -6,6 +6,7 @@ NO_CACHE = false
 TCMALLOC = 
 ARGS ?=
 
+
 TARGETS=$(subst .json,, $(shell ls configs/coins))
 
 .PHONY: build build-debug test deb

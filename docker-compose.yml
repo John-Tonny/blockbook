@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  blockbook:
+    image: johntonny2019/blockbook-vircle:v1.0.0
+    restart: always
+    container_name: 'blockbook-vircle'
+    environment:
+      - RPC_USER: "chain"
+      - RPC_PASS: "999000" 
+      - RPC_HOST: "121.89.233.198" 
+      - RPC_PORT: 9092 
+      - RPC_HTTP: "http" 
+      - NEVM_HTTP: "http" 
+      - NEVM_HOST: "106.55.177.193" 
+      - NEVM_PORT: 4000 
+      - BLOCKBOOK_PORT: 9130 
+    volumes:
+      - /root/blockbook/data:/home/blockbook/data
+    ports:
+      - 9130:9130

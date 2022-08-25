@@ -10,10 +10,10 @@ RPC_PORT="${RPC_PORT:-9282}"
 MQ_PORT="${MQ_PORT:-38393}"
 
 NEVM_HTTP="${NEVM_HTTP:-http}"
-NEVM_HOST="${NEVM_HOST:-localhost}"
+NEVM_HOST="${NEVM_HOST:-127.0.0.1}"
 NEVM_PORT="${NEVM_PORT:-4000}"
 
-CFG_FILE=$BLOCKBOOK_PATH/build/blockchaincfg.json
+CFG_FILE=${BLOCKBOOK_PATH}/build/blockchaincfg.json
 
 sed -i 's/\"rpc_user\":.*/\"rpc_user\": \"'${RPC_USER}'\",/g' $CFG_FILE
 sed -i 's/\"rpc_pass\":.*/\"rpc_pass\": \"'${RPC_PASS}'\",/g' $CFG_FILE
@@ -23,7 +23,7 @@ sed -i 's/\"message_queue_binding\":.*/\"message_queue_binding\": \"tcp:\/\/'${R
 HTML_FILE=$BLOCKBOOK_PATH/static/templates/asset.html
 sed -i 's/http:\/\/127.0.0.1:4000/'${NEVM_HTTP}':\/\/'${NEVM_HOST}':'${NEVM_PORT}'/g' $HTML_FILE
 
-exec ./blockbook -sync -blockchaincfg=/home/blockbook/build/blockchaincfg.json -workers=${WORKERS:-1} -public=:${BLOCKBOOK_PORT:-9130} -logtostderr
+exec ./blockbook -sync -blockchaincfg=${CFG_FILE} -workers=${WORKERS:-1} -public=:${BLOCKBOOK_PORT:-9130} -logtostderr
 
 
 
