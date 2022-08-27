@@ -45,7 +45,7 @@ func init() {
 	// Mainnet address encoding magics
 	MainNetParams.PubKeyHashAddrID = []byte{63} // base58 prefix: s
 	MainNetParams.ScriptHashAddrID = []byte{5} // base68 prefix: 3
-	MainNetParams.Bech32HRPSegwit = "sys"
+	MainNetParams.Bech32HRPSegwit = "vcl"
 
 	TestnetParams = chaincfg.TestNet3Params
 	TestnetParams.Net = TestnetMagic
@@ -53,7 +53,7 @@ func init() {
 	// Testnet address encoding magics
 	TestnetParams.PubKeyHashAddrID = []byte{65} // base58 prefix: t
 	TestnetParams.ScriptHashAddrID = []byte{196} // base58 prefix: 2
-	TestnetParams.Bech32HRPSegwit = "tsys"
+	TestnetParams.Bech32HRPSegwit = "tvcl"
 }
 
 // VircleParser handle
