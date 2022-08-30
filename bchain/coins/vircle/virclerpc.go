@@ -97,7 +97,7 @@ func (b *VircleRPC) GetSPVProof(hash string) (string, error) {
 	glog.V(1).Info("rpc: getspvproof", hash)
 
 	res := btc.ResGetSPVProof{}
-	req := btc.CmdGetSPVProof{Method: "syscoingetspvproof"}
+	req := btc.CmdGetSPVProof{Method: "virclesgetspvproof"}
 	req.Params.Txid = hash
 	err := b.Call(&req, &res)
 

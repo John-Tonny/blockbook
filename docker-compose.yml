@@ -3,7 +3,7 @@ version: '3'
 services:
 
   blockbook:
-    image: johntonny2019/blockbook-vircle:v1.0.1
+    image: johntonny2019/blockbook-vircle:v1.0.2
     restart: always
     container_name: 'blockbook-vircle'
     environment:
@@ -16,6 +16,7 @@ services:
       - NEVM_HOST: "172.17.0.1" 
       - NEVM_PORT: 4000 
       - BLOCKBOOK_PORT: 9130 
+      - WORKERS: 4
     volumes:
       - /root/blockbook/data:/home/blockbook/data
     ports:
